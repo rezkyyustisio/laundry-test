@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PembelianBarang;
+use Illuminate\Routing\Controller;
 
 class LaundryNonMemberController extends Controller
 {

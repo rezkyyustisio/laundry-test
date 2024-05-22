@@ -31,10 +31,10 @@
                                         <td>{{ $pegawai->users->jabatan }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('users.destroy', $pegawai->id) }}" method="POST">
-                                                <a href="{{ route('users.show', $pegawai->id) }}"
+                                                action="{{ route('pegawai.destroy', $pegawai->id) }}" method="POST">
+                                                <a href="{{ route('pegawai.show', $pegawai->id) }}"
                                                     class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('users.edit', $pegawai->id) }}"
+                                                <a href="{{ route('pegawai.edit', $pegawai->id) }}"
                                                     class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
@@ -44,7 +44,7 @@
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">
-                                        Data User Belum Ada.
+                                        Data Pegawai Belum Ada.
                                     </div>
                                 @endforelse
                             </tbody>

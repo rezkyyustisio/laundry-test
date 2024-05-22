@@ -11,7 +11,7 @@
                           @csrf
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Pegawai">
+                                <input type="text" autocomplete="off" name="nama" class="form-control" id="nama" placeholder="Nama Pegawai">
 
                                 @error('nama')
                                 <div class="alert alert-danger mt-2">
@@ -21,7 +21,7 @@
                               </div>
                             <div class="form-group">
                               <label for="nohp">Nomor HP</label>
-                              <input type="text" name="nohp" class="form-control" id="nohp" aria-describedby="nohp" placeholder="Nomor HP">
+                              <input type="text" autocomplete="off" name="nohp" class="form-control" id="nohp" aria-describedby="nohp" placeholder="Nomor HP">
 
                               @error('nohp')
                               <div class="alert alert-danger mt-2">
@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group">
                               <label for="nohp">Email address</label>
-                              <input type="email" name="email" class="form-control" id="email" aria-describedby="email" placeholder="Email">
+                              <input type="email" autocomplete="off" name="email" class="form-control" id="email" aria-describedby="email" placeholder="Email">
 
                               @error('email')
                               <div class="alert alert-danger mt-2">
@@ -51,6 +51,7 @@
                             <div class="form-group">
                                 <label for="jabatan">Level</label>
                                 <select class="form-control" name="jabatan" id="jabatan">
+                                  <option value="">-- Pilih Level --</option>
                                   <option value="karyawan">Karyawan</option>
                                   <option value="supervisi">Sipervisi</option>
                                   <option value="admin">Administrator</option>
