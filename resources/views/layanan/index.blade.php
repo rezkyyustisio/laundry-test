@@ -12,8 +12,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Barang</h3>
-                    <a href="{{ route('barang.create') }}"> <span class="fas fa-plus"></span>Tambah</a>
+                    <h3 class="card-title">Layanan</h3>
+                    <a href="{{ route('layanan.create') }}"> <span class="fas fa-plus"></span>Tambah</a>
                 </div>
             </div>
             <div class="card-body">
@@ -21,29 +21,27 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
+                            <th>Nama Layanan</th>
+                            <th>Lama Pengerjaan</th>
                             <th>Harga</th>
-                            <th>Stok</th>
                             <th>#</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $index => $barang)
+                        @foreach ($data as $index => $layanan)
                             <tr>
                                 <td class="text-center">
                                     {{ ++$index }}
                                 </td>
-                                <td>{{ $barang->kode_barang }}</td>
-                                <td>{{ $barang->nama_barang }}</td>
-                                <td> {{ "Rp " . number_format($barang->harga,0,',','.'); }}</td>
-                                <td>{{ $barang->stok }}</td>
+                                <td>{{ $layanan->nama }}</td>
+                                <td>{{ $layanan->durasi }}</td>
+                                <td> {{ "Rp " . number_format($layanan->harga,0,',','.'); }}</td>
                                 <td>
                                      <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('barang.destroy', $barang->id) }}" method="POST">
-                                                <a href="{{ route('barang.show', $barang->id) }}"
+                                                action="{{ route('layanan.destroy', $layanan->id) }}" method="POST">
+                                                <a href="{{ route('layanan.show', $layanan->id) }}"
                                                     class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('barang.edit', $barang->id) }}"
+                                                <a href="{{ route('layanan.edit', $layanan->id) }}"
                                                     class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')

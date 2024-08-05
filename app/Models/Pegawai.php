@@ -9,13 +9,19 @@ class Pegawai extends Model
 {
     use HasFactory;
     protected $table = 'pegawai';
+    protected $primaryKey = "id";
     protected $fillable = [
-        'nama_pegawai', 'alamat', 'no_hp', 'user_id'
+        'nama_pegawai', 'alamat', 'no_hp', 'user_id','jabatan'
     ];
     public $timestamps = true;
 
     public function users()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->hasOne('App\Models\User', 'id','user_id');
+    }
+
+    public function laundry_non_member()
+    {
+        return $this->hasOne('App\Models\LaundryNonMember', 'pegawai_id');
     }
 }

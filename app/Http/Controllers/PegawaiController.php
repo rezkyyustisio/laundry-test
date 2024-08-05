@@ -26,34 +26,28 @@ class PegawaiController extends Controller
          'password' => 'required|min:5',
          'jabatan' => 'required'
          ]);
-        //   $simpanuser = User::create([
-        //   'name' => $request->nama,
-        //   'email' => $request->email,
-        //   'password' => bcrypt($request->password),
-        //   'jabatan' => $request->jabatan,
-        //   ]);
 
-          $simpanuser = new User;
-          $simpanuser->name = $request->nama;
-          $simpanuser->email = $request->email;
-          $simpanuser->password = bcrypt($request->password);
-          $simpanuser->jabatan = $request->jabatan;
-          $simpanuser->save();
-          $userid = $simpanuser->id;
+         $simpanuser = new User;
+         $simpanuser->name = $request->nama;
+         $simpanuser->email = $request->email;
+         $simpanuser->password = bcrypt($request->password);
+         $simpanuser->jabatan = $request->jabatan;
+         $simpanuser->save();
+         $userid = $simpanuser->id;
 
-         Pegawai::create([
-         'nama_pegawai' => $request->nama,
-         'no_hp' => $request->nohp,
-         'alamat' => $request->alamat,
-         'user_id' => $userid
-         ]);
+        Pegawai::create([
+        'nama_pegawai' => $request->nama,
+        'no_hp' => $request->nohp,
+        'alamat' => $request->alamat,
+        'user_id' => $userid
+        ]);
 
-         //redirect to index
-         return redirect()->route('pegawai.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        //redirect to index
+        return redirect()->route('pegawai.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
     public function edit($id)
     {
-        $data = Pegawai::where('id',$id)->first();
+        $data = Pegawai::with('users')->where('id',$id)->first();
         return view('pegawai.edit', compact('data'));
     }
     public function update(Request $request, $id)
@@ -66,9 +60,10 @@ class PegawaiController extends Controller
 
         $user = User::find($data->user_id);
         $user->email = $request->email_pegawai;
-        $user->jabatan = $request->jabatan;
+        if(isset($request->jabatan)){
+            $user->jabatan = $request->jabatan;
+        }
         $user->save();
-        
         return redirect()->route('pegawai.index');
     }
     public function destroy($id)

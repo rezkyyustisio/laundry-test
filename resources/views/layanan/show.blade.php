@@ -10,20 +10,16 @@
                 <table class="">
                     <tbody>
                         <tr>
-                            <th width="200">Kode Barang</th>
-                            <td>{{ ucwords($data->kode_barang) }}</td>
+                            <th width="200">Nama Layanan</th>
+                            <td>{{ ucwords($data->nama) }}</td>
                         </tr>
                         <tr>
-                            <th width="200">Nama Barang</th>
-                            <td>{{ ucwords($data->nama_barang) }}</td>
+                            <th width="200">Durasi</th>
+                            <td>{{ ucwords($data->durasi) }}</td>
                         </tr>
                         <tr>
                             <th width="200">Harga</th>
                             <td>{{ "Rp " . number_format($data->harga,0,',','.'); }}</td>
-                        </tr>
-                        <tr>
-                            <th width="200">Stok</th>
-                            <td>{{ ucwords($data->stok) }}</td>
                         </tr>
                     </tbody>
                 </table>

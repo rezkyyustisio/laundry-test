@@ -58,7 +58,7 @@
                                     <option value="">-- Pilih Jabatan --</option>
                                     <option value="karyawan" {{ $data->users->jabatan == 'karyawan' ? 'selected' : '' }}>Karyawan</option>
                                     <option value="supervisi" {{ $data->users->jabatan == 'supervisi' ? 'selected' : '' }}>Sipervisi</option>
-                                    <option value="admin" {{ $data->users->jabatan == 'admin' ? 'selected' : '' }}>Administrator</option>
+                                    <option value="admin" {{ $data->users->jabatan == 'administrator' ? 'selected' : '' }}>Administrator</option>
                                 </select>
                             </td>
                         </tr>

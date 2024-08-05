@@ -21,15 +21,17 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_barang' => 'required',
-            'nama_barang' => 'required',
+            'kodeBarang' => 'required',
+            'namaBarang' => 'required',
             'harga' => 'required',
+            'stok' => 'required',
         ]);
 
         $data = new Barang;
-        $data->kode_barang = $request->kode_barang;
-        $data->nama_barang = $request->nama_barang;
+        $data->kode_barang = $request->kodeBarang;
+        $data->nama_barang = $request->namaBarang;
         $data->harga = $request->harga; 
+        $data->stok = $request->stok; 
         $data->save();
 
         return redirect()->route('barang.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -42,15 +44,16 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'kode_barang' => 'required',
-            'nama_barang' => 'required',
+            'kodeBarang' => 'required',
+            'namaBarang' => 'required',
             'harga' => 'required',
+            'stok' => 'required',
         ]);
-
         $data = Barang::find($id);
-        $data->kode_barang = $request->kode_barang;
-        $data->nama_barang = $request->nama_barang;
+        $data->kode_barang = $request->kodeBarang;
+        $data->nama_barang = $request->namaBarang;
         $data->harga = $request->harga; 
+        $data->stok = $request->stok; 
         $data->save();
 
         return redirect()->route('barang.index')->with(['success' => 'Data Berhasil Disimpan!']);

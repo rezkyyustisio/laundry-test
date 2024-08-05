@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -44,7 +45,7 @@
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">
-                                        Data Pegawai Belum Ada.
+                                        Data User Belum Ada.
                                     </div>
                                 @endforelse
                             </tbody>
@@ -55,9 +56,5 @@
         </div>
     </div>
 @endsection
-
-
-
 <div>
-
 </div>
